@@ -375,9 +375,9 @@ int main() {
     openvdb::initialize();
 
     std::vector<Template> templates =
-        load_templates_from_csv("C:/thinning_cpu/build/templates_load_255.csv");
+        load_templates_from_csv("templates_255.csv");
 
-    std::string input_filename = "C:/openvdb_drop/bin/phys_500.vdb";
+    std::string input_filename = "cube_500.vdb";
     openvdb::io::File file_sdf(input_filename);
     file_sdf.open();
     openvdb::GridBase::Ptr baseGrid =
@@ -405,7 +405,7 @@ int main() {
         std::cout << "[Threads " << threads << "] Time: " << elapsed << " s\n";
 
         
-        std::string output_filename = "C:/openvdb_drop/bin/thin_lohou_500.vdb";
+        std::string output_filename = "thin_lohou_500.vdb";
         openvdb::io::File output_file(output_filename);
         openvdb::GridPtrVec grids;
         grids.push_back(thinned);
@@ -420,8 +420,9 @@ int main() {
             return 1;
         }
 
-        return 0;
+       
     }
 
     return 0;
 }
+
