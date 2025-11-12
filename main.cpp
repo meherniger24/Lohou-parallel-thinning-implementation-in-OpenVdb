@@ -396,7 +396,7 @@ int main() {
     openvdb::tools::dilateActiveValues(input_grid->tree(), 1);
 
     // different thread counts
-    for (int threads : {1}) {
+    for (int threads : {1,2,4,8,16}) {
         auto start = std::chrono::high_resolution_clock::now();
         auto thinned = thinning_lohou_parallel(input_grid, templates, threads);
         auto end = std::chrono::high_resolution_clock::now();
@@ -425,4 +425,5 @@ int main() {
 
     return 0;
 }
+
 
